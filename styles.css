@@ -1,59 +1,56 @@
-/* =====================================================================
-   styles.css  ·  YOUR BRAND
-   ---------------------------------------------------------------------
-   This one file is your brand guide. Every page that links to it gets
-   the same font, the same colors and the same spacing.
-   Change a color here once, and every page changes.
-
-   Use the same font and colors you picked for your Excel menu images,
-   so the menu and the pages look like one brand.
-   ===================================================================== */
-
+/* BMIS 235: shared styles.css for all six pages. */
+:root {
+  --pink: #F7ABCA;  /* matched to the Excel font */
+  --gray: #AEAEAE;  /* matched to the Excel cell fill */
+  --ink: #171317;
+  --surface: #272128;
+  --cream: #f3e8ed;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background-color: #f4efe6;
-    color: #2b2b2b;
-    margin: 0;
-    padding: 0 20px 40px 20px;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--cream);
+  font-family: 'Aptos Narrow', 'Arial Narrow', Arial, sans-serif;
+  background: radial-gradient(ellipse at 82% 0%, #5a3049 0, transparent 34%),
+              radial-gradient(ellipse at 0% 70%, #342730 0, transparent 44%), var(--ink);
+  line-height: 1.55;
 }
-
-/* the menu at the top of every page */
-nav {
-    background-color: #2b5d8c;
-    padding: 14px;
-    text-align: center;
+/* A subtle pink-noise texture, made with plain CSS/SVG (no dependencies). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: .11;
+  pointer-events: none;
+  z-index: 10;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.6' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
-/* every image inside the menu is forced to the same height.
-   If your images still look different sizes, their WIDTHS are
-   different: go back to Excel and make every cell the same size. */
-nav img {
-    height: 50px;
-    margin: 4px;
-    vertical-align: middle;
-}
-
-/* no underline or border around the image links */
-nav a {
-    text-decoration: none;
-}
-
-h1 {
-    color: #2b5d8c;
-    text-align: center;
-    font-size: 40px;
-}
-
-p {
-    max-width: 600px;
-    margin: 20px auto;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-footer {
-    text-align: center;
-    font-size: 14px;
-    color: #777777;
-    margin-top: 40px;
-}
+a { color: var(--pink); }
+a:hover { color: white; }
+.site-header { padding: 24px clamp(16px, 5vw, 64px) 16px; border-bottom: 1px solid #55434f; }
+.site-id { color: var(--pink); font-size: 12px; letter-spacing: .17em; margin-bottom: 18px; font-weight: 800; }
+.light-dot { display: inline-block; width: 8px; height: 8px; background: var(--pink); border-radius: 50%; margin-right: 7px; box-shadow: 0 0 10px var(--pink); }
+nav { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+nav a { display: inline-flex; transition: transform .18s, filter .18s; border-radius: 3px; }
+nav a:hover, nav a:focus-visible { transform: translateY(-4px); filter: drop-shadow(0 0 9px #f7abca7b); }
+nav img { display: block; width: clamp(106px, 14vw, 148px); height: auto; border: 0; }
+main { width: min(1040px, calc(100% - 36px)); margin: 0 auto; padding: clamp(30px, 5vw, 70px) 0 50px; }
+.eyebrow { text-transform: uppercase; color: var(--pink); font: 700 12px/1.4 monospace; letter-spacing: .18em; }
+h1 { font-size: clamp(46px, 8vw, 100px); line-height: .92; letter-spacing: -.055em; margin: 13px 0 22px; color: var(--pink); text-transform: uppercase; }
+h2 { font-size: clamp(23px, 3.1vw, 34px); letter-spacing: -.02em; margin: 0 0 12px; }
+.lead { font-size: clamp(18px, 2vw, 23px); max-width: 730px; color: #e2d4dd; }
+.small { color: #bcaab5; font-size: 14px; }
+.rule { border: 0; border-top: 1px solid #62505b; margin: 33px 0; }
+.producer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 13px; margin: 30px 0; }
+.producer-card { display: block; text-decoration: none; color: var(--cream); background: #272027; border: 1px solid #6e5666; padding: 25px 20px; min-height: 150px; transition: background .18s, transform .18s; }
+.producer-card:hover { background: #3e2736; transform: translateY(-3px); }
+.producer-card strong { display: block; color: var(--pink); font-size: 27px; margin: 16px 0 8px; }
+.label { font-size: 11px; color: #b8a5ae; letter-spacing: .15em; }
+.profile-panel { max-width: 760px; background: #292129; border: 1px solid #6e5666; padding: 25px; margin-top: 30px; }
+.profile-panel h2 { color: var(--pink); }
+.fill-in { border-left: 3px solid var(--pink); padding-left: 15px; color: #d4c6ce; }
+footer { border-top: 1px solid #55434f; margin: 24px 0 0; padding: 22px clamp(16px, 5vw, 64px); color: #c1b3bb; font-size: 13px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+footer span { color: var(--pink); letter-spacing: .1em; }
+@media (max-width: 520px) { .producer-grid { grid-template-columns: 1fr 1fr; } .producer-card { min-height: 130px; padding: 15px; } .producer-card strong { font-size: 21px; } }
