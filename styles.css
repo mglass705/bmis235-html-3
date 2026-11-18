@@ -73,3 +73,12 @@ footer span { color: var(--pink); letter-spacing: .1em; }
 .track-side { font: 700 10px monospace; color: #ad98a4; white-space: nowrap; }
 .track-source { color: #c5b6c0; font-size: 12px; margin: 15px 0 0; }
 @media(max-width:560px) { .track-gallery { padding: 13px; } .track-count, .track-side { display: none; } .track-art { width: 48px; height: 48px; flex-basis: 48px; } }
+
+
+/* CSS COMMIT 3 OF 3: add animated pink-noise track interactions */
+.track-item { transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.track-item:hover { transform: translateX(5px); background: #463044; border-color: #F7ABCA; box-shadow: -4px 0 0 #F7ABCA; }
+.track-art { position: relative; overflow: hidden; }
+.track-art::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .14; background: repeating-linear-gradient(0deg,transparent 0 3px,#171317 4px 5px); }
+.track-art span { position: relative; z-index: 1; }
+@media(prefers-reduced-motion:reduce) { .track-item { transition: none; } .track-item:hover { transform: none; } }
