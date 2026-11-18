@@ -54,3 +54,22 @@ h2 { font-size: clamp(23px, 3.1vw, 34px); letter-spacing: -.02em; margin: 0 0 12
 footer { border-top: 1px solid #55434f; margin: 24px 0 0; padding: 22px clamp(16px, 5vw, 64px); color: #c1b3bb; font-size: 13px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 footer span { color: var(--pink); letter-spacing: .1em; }
 @media (max-width: 520px) { .producer-grid { grid-template-columns: 1fr 1fr; } .producer-card { min-height: 130px; padding: 15px; } .producer-card strong { font-size: 21px; } }
+
+.track-gallery { margin: 36px 0; padding: 22px; background: #231c23; border: 1px solid #705666; }
+.track-gallery-heading { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.track-gallery-heading h2 { color: #F7ABCA; font-size: clamp(22px, 3vw, 34px); margin: 4px 0 0; }
+.track-kicker, .track-count { font: 700 11px/1.4 monospace; letter-spacing: .12em; color: #c4a8b8; margin: 0; }
+.track-list { display: grid; gap: 8px; }
+.track-item { display: flex; align-items: center; gap: 14px; min-width: 0; background: #322731; border: 1px solid #604959; padding: 10px 13px; }
+.track-art { width: 60px; height: 60px; flex: 0 0 60px; display: grid; place-items: center; background: linear-gradient(140deg,#F7ABCA,#5c344d 62%,#171317); border: 1px solid #9b6c85; }
+.track-art span { font-size: 23px; font-weight: 900; color: #171317; }
+.track-art-2 { background: linear-gradient(45deg,#50465d,#F7ABCA); }
+.track-art-3 { background: linear-gradient(145deg,#aeaeae,#a74c83); }
+.track-art-4 { background: linear-gradient(20deg,#8c5c83,#272128,#F7ABCA); }
+.track-art-5 { background: linear-gradient(155deg,#F7ABCA,#9a8e95,#171317); }
+.track-meta { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.track-meta strong { color: #F3E8ED; font-size: clamp(15px,2vw,19px); }
+.track-meta span { color: #c5b6c0; font-size: 13px; }
+.track-side { font: 700 10px monospace; color: #ad98a4; white-space: nowrap; }
+.track-source { color: #c5b6c0; font-size: 12px; margin: 15px 0 0; }
+@media(max-width:560px) { .track-gallery { padding: 13px; } .track-count, .track-side { display: none; } .track-art { width: 48px; height: 48px; flex-basis: 48px; } }
