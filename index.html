@@ -6,55 +6,93 @@
 -->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="author" content="Matthew Glass">
-<title>Home</title>
-
-<!-- this one line connects the page to the stylesheet -->
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="author" content="Matthew Glass">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behind the Sound | Home</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-id"><span class="light-dot"></span> AFTER HOURS / AN UNDERGROUND PRODUCER ARCHIVE</div>
+    <nav aria-label="Producer navigation">
+      <a href="index.html"><img src="img/home.png" alt="Home" width="165" height="54"></a>
+      <a href="ginseng.html"><img src="img/ginseng.png" alt="Ginseng" width="165" height="54"></a>
+      <a href="misogi.html"><img src="img/misogi.png" alt="MISOGI" width="165" height="54"></a>
+      <a href="skai.html"><img src="img/skai.png" alt="Skai" width="165" height="54"></a>
+      <a href="cxo.html"><img src="img/cxo.png" alt="CXO" width="165" height="54"></a>
+      <a href="art-dealer.html"><img src="img/art-dealer.png" alt="Art Dealer" width="165" height="54"></a>
+    </nav>
+  </header>
 
-<!-- ===== MENU ============================================================
-     The menu is four links. Each link wraps an image instead of words.
-     Build it once on this page, check that every link works,
-     then copy the whole <nav> block and paste it over the menu on the
-     other three pages, so every page has the exact same menu.
-     ===================================================================== -->
-<nav>
-  <a href="index.html"><img src="home.png" alt="Home"></a>
-  <a href="jack.html"><img src="jack.png" alt="Jack"></a>
-  <a href="simon.html"><img src="simon.png" alt="Simon"></a>
-  <a href="zack.html"><img src="zack.png" alt="Zack"></a>
-  <a href="josh.html"><img src="josh.png" alt="Josh"></a>
-</nav>
+  <main>
+    <p class="eyebrow">AN INTERNET ARCHIVE / FIVE PRODUCERS / NO PARTICULAR ORDER</p>
+    <h1>BEHIND<br>THE SOUND.</h1>
+    <p class="lead">An appreciation of five underground rap producers whose work deserves to be heard for more than the name on the track. No ranking. Just five artists I wanted to put in one place.</p>
+    <p class="small">Explore their pages below, or use the navigation buttons above.</p>
+    <hr class="rule">
+    <h2>The five</h2>
+    <div class="producer-grid">
+      <a class="producer-card" href="ginseng.html"><span class="label">PRODUCER PROFILE</span><strong>Ginseng</strong><span class="small">Open profile ↗</span></a>
+      <a class="producer-card" href="misogi.html"><span class="label">PRODUCER PROFILE</span><strong>MISOGI</strong><span class="small">Open profile ↗</span></a>
+      <a class="producer-card" href="skai.html"><span class="label">PRODUCER PROFILE</span><strong>Skai</strong><span class="small">Open profile ↗</span></a>
+      <a class="producer-card" href="cxo.html"><span class="label">PRODUCER PROFILE</span><strong>CXO</strong><span class="small">Open profile ↗</span></a>
+      <a class="producer-card" href="art-dealer.html"><span class="label">PRODUCER PROFILE</span><strong>Art Dealer</strong><span class="small">Open profile ↗</span></a>
+    </div>
+    <h2>Explore the frequencies</h2>
+  <div class="showcase">
+    <!-- HTML: five clickable buttons and a details panel -->
+    <div class="showcase-inner">
+      <div class="showcase-label">INTERACTIVE / SELECT A FREQUENCY</div>
+      <div class="showcase-options" aria-label="Choose a producer">
+        <button type="button" data-producer="Ginseng" data-page="ginseng.html">Ginseng</button>
+        <button type="button" data-producer="MISOGI" data-page="misogi.html">MISOGI</button>
+        <button type="button" data-producer="Skai" data-page="skai.html">Skai</button>
+        <button type="button" data-producer="CXO" data-page="cxo.html">CXO</button>
+        <button type="button" data-producer="Art Dealer" data-page="art-dealer.html">Art Dealer</button>
+      </div>
+      <div class="showcase-output" aria-live="polite">
+        <span class="showcase-sub">NOW HIGHLIGHTING</span>
+        <strong class="showcase-name">Choose a producer</strong>
+        <a class="showcase-link" href="ginseng.html" hidden>Read producer profile ↗</a>
+      </div>
+    </div>
+    <!-- CSS: scoped to .showcase, so it won't affect other parts of the site -->
+    <style>
+      .showcase { margin: 42px 0; max-width: 100%; }
+      .showcase .showcase-inner { padding: clamp(15px, 3vw, 30px); border: 1px solid #a77990; background: radial-gradient(circle at 80% 0%, #804a67, transparent 45%), #2a202a; min-height: 270px; }
+      .showcase .showcase-label, .showcase .showcase-sub { font: 700 11px/1.4 monospace; letter-spacing: .14em; color: #e7b3cc; }
+      .showcase .showcase-options { display: flex; flex-wrap: wrap; gap: 9px; margin: 18px 0 25px; }
+      .showcase .showcase-options button { font: 700 15px 'Arial Narrow', Arial, sans-serif; background: #aeaeae; color: #38232f; border: 1px solid #171317; padding: 10px 14px; cursor: pointer; border-radius: 0; }
+      .showcase .showcase-options button:hover, .showcase .showcase-options button[aria-pressed="true"] { color: #171317; background: #f7abca; }
+      .showcase .showcase-output { display: grid; gap: 8px; border-top: 1px solid #855c73; padding-top: 16px; }
+      .showcase .showcase-name { font-size: clamp(25px, 4vw, 42px); color: #f7abca; line-height: 1; }
+      .showcase .showcase-link { color: #f4d8e5; width: fit-content; font-size: 14px; }
+      .showcase .showcase-link[hidden] { display: none; }
+    </style>
+    <!-- JavaScript: change the highlighted producer on click -->
+    <script>
+      (function () {
+        const box = document.querySelector('.showcase');
+        const buttons = box.querySelectorAll('[data-producer]');
+        const name = box.querySelector('.showcase-name');
+        const link = box.querySelector('.showcase-link');
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            buttons.forEach((other) => other.setAttribute('aria-pressed', 'false'));
+            button.setAttribute('aria-pressed', 'true');
+            name.textContent = button.dataset.producer;
+            link.href = button.dataset.page;
+            link.hidden = false;
+          });
+        });
+      })();
+    </script>
+  </div>
 
-<h1>Home</h1>
+    <p class="small">For more music, visit <a href="https://soundcloud.com/">SoundCloud</a>. Questions or suggestions? <a href="mailto:mglass2@zagmail.gonzaga.edu">Email me</a>.</p>
+  </main>
 
-<h1>Welcome to Corkery 302!</h1>
-
-<p>Welcome to our dorm website! Meet the
-roommates and learn about the people living here.</p>
-
-<p>Use the navigation menu above to explore
-each roommate's personal page.</p>
-
-<p>Check out
-<a href="https://www.gonzaga.edu">Gonzaga University</a>,
-where we all go to school.</p>
-
-<p><a href="mailto:mglass2@zagmail.gonzaga.edu">
-Contact us (me)</a></p>
-
-
-<!-- ===== SHOWCASE ======================================================
-     This box is empty on purpose. In Part 7 you paste an interactive
-     graphic BETWEEN the opening <div> and the closing </div> below.
-     ===================================================================== -->
-<div class="showcase"></div>
-
-<!-- Footer: fill in your name -->
-<footer>Built by Matthew Glass &middot; BMIS 235</footer>
-
+  <footer>Built by Matthew Glass &middot; BMIS 235 <span>NO RANKING / JUST FAVORITES</span></footer>
 </body>
 </html>
